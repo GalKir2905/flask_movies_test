@@ -1,6 +1,6 @@
-from flask import render_template, redirect, url_for
-from . import app, db
-from .models import Review, Movie
+from flask import render_template
+from . import app
+from .models import Movie
 
 
 @app.route('/')
