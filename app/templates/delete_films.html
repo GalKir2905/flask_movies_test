@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+      <div class="row">
+        <div class="row mb-3">
+          <h1 class="mt-3 display-4">Фильмы</h1>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for each_row in movie %}
+              <tr>
+                <th scope="row">{{ each_row.id }}</th>
+                <td><img src="{{ url_for('static', filename='images/' + each_row.image) }}" class="card-img-top"></td>
+                <td>{{ each_row.title }}</td>
+                <td>
+                  <p>&#34;{{ each_row.description }}&#34;</p>
+                </td>
+                <td>
+                  {% if current_user.is_authenticated %}
+                  <a href="/delete_movie/{{ each_row.id }}" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                 {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+{% endblock content %}
