@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SelectField, SubmitField, PasswordField, BooleanField, RadioField, URLField, FileField
+from wtforms import StringField, TextAreaField, SelectField, SubmitField, PasswordField, BooleanField, RadioField, FileField
 from wtforms.validators import DataRequired, Length, Optional, Email, EqualTo, URL
+
 
 from .models import Review
 
@@ -35,5 +36,5 @@ class AddMovieForm(FlaskForm):
     title = StringField('Название', validators=[DataRequired(message="Поле не должно быть пустым"),
                                                 Length(max=255, message='Введите заголовок длиной до 255 символов')])
     description = TextAreaField('Текст', validators=[DataRequired(message="Поле не должно быть пустым")])
-    image = URLField('URL', validators=[DataRequired(message="Введите URL"), URL(message="Введите валидную ссылку")])
+    image = FileField()
     submit = SubmitField('Добавить')

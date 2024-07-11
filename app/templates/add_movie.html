@@ -25,6 +25,8 @@
       <span>{{ error }}</span>
     </div>
     {% endfor %}
+      <p> Upload a file {{ form.file_name() }} </p>
+      <p><input type="submit" value="Submit"></p>
     <div class="form-group mb-3">
       <label>
         {{ form.image.label }}
