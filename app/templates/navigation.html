@@ -33,7 +33,7 @@
 
             <form class="d-flex" role="search">
                 {% if not current_user.is_authenticated %}
-                <a class="btn btn-primary me-2" href="{{ url_for('login') }}">SignIn</a>
+                <a class="btn btn-primary me-2" href="{{ url_for('login') }}">Sign In</a>
                 <a class="btn btn-primary" href="{{ url_for('registration') }}">Registration</a>
                 {% else %}
                 <span class="navbar-text">{{ current_user.name }}</span>
